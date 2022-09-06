@@ -1,0 +1,20 @@
+class Estadisticos:
+  def __init__(self, datos):
+    self.datos=datos
+  def media(self):
+    return sum(self.datos)/len(self.datos)
+  def mediana(self):
+    self.datos.sort()
+    variable=len(self.datos)
+    if variable%2==0:
+      print((self.datos[int(variable/2)]+self.datos[int(variable/2)-1])/2)
+    else:
+      print(self.datos[int(variable/2)-0.5])
+  def varianza(self):
+    media_x=self.media()
+    vec=[(i-media_x)**2 for i in self.datos]
+    return sum(vec)/(len(vec)-1)
+  def desviacion_estandar(self):
+     return self.varianza()**(1/2)
+  def coeficiente_variacion(self):
+    return self.desviacion_estandar
